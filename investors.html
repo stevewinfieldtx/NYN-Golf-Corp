@@ -112,8 +112,8 @@
             <!-- Contact Info -->
             <div class="mt-8 pt-6 border-t border-white/10 text-center">
                 <p class="text-gray-400 text-sm mb-2">Need access?</p>
-                <a href="/cdn-cgi/l/email-protection#e28b8c94879196a28c9b8c858d8e84cc818d8f" class="text-gold hover:text-yellow-400 transition-colors font-medium">
-                    <i class="fa-solid fa-envelope mr-2"></i><span class="__cf_email__" data-cfemail="e48d8a92819790a48a9d8a838b8882ca878b89">[email&#160;protected]</span>
+                <a href="mailto:Invest@NYNgolf.com" class="text-gold hover:text-yellow-400 transition-colors font-medium">
+                    <i class="fa-solid fa-envelope mr-2"></i>Invest@NYNgolf.com
                 </a>
             </div>
         </div>
@@ -126,7 +126,7 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         const CORRECT_PASSWORD = 'puttingfordough2026';
         
         document.getElementById('accessForm').addEventListener('submit', function(e) {
@@ -137,12 +137,9 @@
             const enteredCode = input.value.trim().toLowerCase();
             
             if (enteredCode === CORRECT_PASSWORD.toLowerCase()) {
-                // Store access in session
                 sessionStorage.setItem('nyn_investor_access', 'granted');
-                // Redirect to dashboard
                 window.location.href = 'investor-dashboard.html';
             } else {
-                // Show error
                 errorMsg.classList.remove('hidden');
                 input.classList.add('border-red-500');
                 input.parentElement.classList.add('error-shake');
@@ -153,5 +150,11 @@
             }
         });
 
-        // Clear error on input
-        docum
+        document.getElementById('accessCode').addEventListener('input', function() {
+            document.getElementById('errorMsg').classList.add('hidden');
+            this.classList.remove('border-red-500');
+        });
+    </script>
+
+</body>
+</html>

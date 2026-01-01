@@ -12,7 +12,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap');
 
         :root {
-            --nyn-blue: #0f1c3f; /* Deep Majestic Navy */
+            --nyn-blue: #0f1c3f;
             --nyn-blue-light: #1e3a8a;
             --nyn-gold: #d4af37;
             --nyn-cream: #f9f9f7;
@@ -29,17 +29,9 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
-        .text-gold {
-            color: var(--nyn-gold);
-        }
-
-        .bg-gold {
-            background-color: var(--nyn-gold);
-        }
-
-        .border-gold {
-            border-color: var(--nyn-gold);
-        }
+        .text-gold { color: var(--nyn-gold); }
+        .bg-gold { background-color: var(--nyn-gold); }
+        .border-gold { border-color: var(--nyn-gold); }
 
         .glass-panel {
             background: rgba(15, 28, 63, 0.85);
@@ -48,21 +40,12 @@
         }
 
         .hero-overlay {
-            /* Lighter gradient to let the image shine through */
             background: linear-gradient(to bottom, rgba(15, 28, 63, 0.2), rgba(15, 28, 63, 0.8));
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--nyn-blue);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--nyn-gold);
-            border-radius: 4px;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--nyn-blue); }
+        ::-webkit-scrollbar-thumb { background: var(--nyn-gold); border-radius: 4px; }
     </style>
 </head>
 <body class="antialiased selection:bg-yellow-600 selection:text-white">
@@ -70,7 +53,6 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 py-6 px-8 md:px-16 flex justify-between items-center glass-panel" id="navbar">
         <div class="flex items-center gap-4">
-            <!-- Logo with fallback -->
             <img src="NYN-Golf-Logo-Blue.png" alt="NYN Golf Logo" class="h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
             <div class="text-2xl font-bold tracking-widest serif hidden text-white">NYN<span class="text-gold">GOLF</span></div>
         </div>
@@ -88,22 +70,13 @@
 
     <!-- Hero Section -->
     <header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
-        <!-- 
-            BACKGROUND IMAGE LOGIC:
-            1. Tries to load 'Ba-Na-Hills-1-scaled.jpeg' (Your local file)
-            2. If that fails (onerror), it loads the high-res fallback URL.
-        -->
         <div class="absolute inset-0 z-0">
-            <img src="Ba-Na-Hills-1-scaled.jpeg" 
-                 alt="Ba Na Hills Golf Course" 
-                 class="w-full h-full object-cover" 
-                 id="hero-bg"
-                 onerror="this.src='https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=2070&auto=format&fit=crop'">
+            <img src="Ba-Na-Hills-1-scaled.jpeg" alt="Ba Na Hills Golf Course" class="w-full h-full object-cover" id="hero-bg" onerror="this.src='https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=2070&auto=format&fit=crop'">
         </div>
         <div class="absolute inset-0 hero-overlay z-10"></div>
         
         <div class="relative z-20 text-center max-w-4xl px-6 pt-20">
-            <div class="inline-block border-b border-yellow-600 pb-2 mb-6 text-gold tracking-[0.3em] uppercase text-sm animate-fade-in-up">The 2026 Season</div>
+            <div class="inline-block border-b border-yellow-600 pb-2 mb-6 text-gold tracking-[0.3em] uppercase text-sm">The 2026 Season</div>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium leading-tight mb-8 drop-shadow-2xl text-white">
                 Not Your <span class="italic text-gold">Normal</span> <br> Golf Experience
             </h1>
@@ -174,11 +147,6 @@
                 <div class="relative h-[600px] w-full" id="philo-img">
                     <div class="absolute top-0 right-0 w-4/5 h-4/5 border border-yellow-600/30 z-0 translate-x-4 -translate-y-4"></div>
                     <div class="absolute inset-0 bg-gray-900 z-10 overflow-hidden shadow-2xl">
-                        <!-- 
-                            REPLACED IMAGE:
-                            Now using a high-end, dark interior shot (Restaurant/Atmosphere).
-                            No markets, no boxes. Pure luxury.
-                        -->
                         <img src="https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=1974&auto=format&fit=crop" alt="Exclusive Dining Experience" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700">
                     </div>
                     <div class="absolute -bottom-10 -left-10 bg-yellow-600 p-8 z-20 shadow-xl max-w-xs hidden md:block">
@@ -191,7 +159,7 @@
 
     <!-- The Keys / The Fixers -->
     <section id="access" class="py-24 px-6 md:px-16 bg-gradient-to-b from-[#0f1c3f] to-[#050a19]">
-        <div class="max-w-5xl mx-auto text-center mb-20">
+        <div class="max-w-5xl mx-auto text-center mb-12">
             <span class="text-gold tracking-[0.3em] uppercase text-sm font-bold">The NYN Difference</span>
             <h2 class="text-4xl md:text-6xl mt-4 mb-6">We Are The "Keys"</h2>
             <p class="text-gray-400 max-w-2xl mx-auto">
@@ -208,7 +176,6 @@
                     <p class="text-gold text-sm uppercase tracking-widest text-center">Our Local Keys — Your 24/7 Advantage</p>
                 </div>
             </div>
-        </div
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -332,7 +299,6 @@
                             <input type="tel" class="w-full bg-transparent border-b border-gray-600 py-2 text-white focus:outline-none focus:border-gold transition-colors" placeholder="+1 (555) 000-0000">
                         </div>
                         
-                        <!-- Likelihood Question -->
                         <div class="space-y-2">
                             <label class="text-xs uppercase tracking-widest text-gray-400">Likelihood of 2026 Travel</label>
                             <select class="w-full bg-transparent border-b border-gray-600 py-2 text-white focus:outline-none focus:border-gold transition-colors">
@@ -356,7 +322,7 @@
                         </button>
                     </form>
                     
-                    <div id="success-msg" class="hidden text-center py-10 animate-fade-in">
+                    <div id="success-msg" class="hidden text-center py-10">
                         <i class="fa-regular fa-circle-check text-5xl text-gold mb-4"></i>
                         <h3 class="text-2xl serif text-white mb-2">Welcome to the Inner Circle.</h3>
                         <p class="text-gray-400">We've noted your interest. Watch your inbox for the first reveal of our 2026 itineraries.</p>
@@ -365,7 +331,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Investment Opportunity Section -->
     <section class="py-20 px-6 bg-gradient-to-b from-[#050a19] to-[#0f1c3f] border-t border-white/5">
@@ -426,12 +391,13 @@
                         Access Investor Portal
                     </a>
                     <p class="text-gray-500 text-sm mt-4">
-                        Contact <a href="/cdn-cgi/l/email-protection#6801061e0d1b1c280611060f07040e460b0705" class="text-gold hover:text-yellow-400"><span class="__cf_email__" data-cfemail="f1989f87948285b19f889f969e9d97df929e9c">[email&#160;protected]</span></a> for access credentials
+                        For more information, send an email to <a href="mailto:Invest@NYNgolf.com" class="text-gold hover:text-yellow-400">Invest@NYNgolf.com</a>
                     </p>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Footer -->
     <footer class="bg-[#050a19] py-12 border-t border-white/5 text-center md:text-left">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -470,11 +436,9 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Animations
+    <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -488,44 +452,26 @@
             }
         });
 
-        // Hero Image Parallax - Subtle
         gsap.to("#hero-bg", {
-            scrollTrigger: {
-                trigger: "header",
-                start: "top top",
-                end: "bottom top",
-                scrub: true
-            },
-            y: 50, // Reduced movement to keep image centered
-            scale: 1.1 // Slight zoom for effect
+            scrollTrigger: { trigger: "header", start: "top top", end: "bottom top", scrub: true },
+            y: 50, scale: 1.1
         });
 
-        // Reveal Text
         gsap.from("#philo-text", {
-            scrollTrigger: {
-                trigger: "#philosophy",
-                start: "top 70%",
-            },
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out"
+            scrollTrigger: { trigger: "#philosophy", start: "top 70%" },
+            y: 50, opacity: 0, duration: 1, ease: "power3.out"
         });
 
-        // Reveal Image
         gsap.from("#philo-img", {
-            scrollTrigger: {
-                trigger: "#philosophy",
-                start: "top 70%",
-            },
-            x: 50,
-            opacity: 0,
-            duration: 1,
-            delay: 0.3,
-            ease: "power3.out"
+            scrollTrigger: { trigger: "#philosophy", start: "top 70%" },
+            x: 50, opacity: 0, duration: 1, delay: 0.3, ease: "power3.out"
         });
 
-        // Cards Stagger
         gsap.from(".glass-panel", {
-            scrollTrigger: {
-                trigger: "
+            scrollTrigger: { trigger: "#access", start: "top 70%" },
+            y: 30, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out"
+        });
+    </script>
+
+</body>
+</html>
