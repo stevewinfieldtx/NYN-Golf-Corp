@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYN Golf | Investor Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap');
+
+        :root {
+            --nyn-blue: #0f1c3f;
+            --nyn-blue-dark: #050a19;
+            --nyn-gold: #d4af37;
+            --nyn-cream: #f9f9f7;
+            --nyn-green: #2C8C6E;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--nyn-blue);
+            color: var(--nyn-cream);
+        }
+
+        h1, h2, h3, h4, .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .text-gold { color: var(--nyn-gold); }
+        .bg-gold { background-color: var(--nyn-gold); }
+        .border-gold { border-color: var(--nyn-gold); }
+        .text-green { color: var(--nyn-green); }
+
+        .glass-panel {
+            background: rgba(15, 28, 63, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(5, 10, 25, 0.9) 0%, rgba(15, 28, 63, 0.9) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .doc-card:hover {
+            border-color: var(--nyn-gold);
+            transform: translateY(-2px);
+        }
+
+        .highlight-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Check Access -->
+    <script>
+        if (sessionStorage.getItem('nyn_investor_access') !== 'granted') {
+            window.location.href = 'investors.html';
+        }
+    </script>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <a href="index.html" class="text-xl font-bold tracking-widest serif text-white">NYN<span class="text-gold">GOLF</span></a>
+            <span class="text-gray-500">|</span>
+            <span class="text-gold text-sm uppercase tracking-wider">Investor Portal</span>
+        </div>
+        <div class="flex items-center gap-6">
+            <a href="/cdn-cgi/l/email-protection#fc95928a998f88bc9285929b93909ad29f9391" class="text-sm text-gray-400 hover:text-gold transition-colors hidden md:block">
+                <i class="fa-solid fa-envelope mr-2"></i><span class="__cf_email__" data-cfemail="91f8ffe7f4e2e5d1ffe8fff6fefdf7bff2fefc">[email&#160;protected]</span>
+            </a>
+            <button onclick="sessionStorage.removeItem('nyn_investor_access'); window.location.href='investors.html';" class="text-sm text-gray-500 hover:text-white transition-colors">
+                <i class="fa-solid fa-right-from-bracket mr-1"></i>Exit
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-24 pb-16 px-6 md:px-12">
+        <div class="absolute inset-0 z-0">
+            <img src="Ba-Na-Hills-1-scaled.jpeg" alt="Vietnam Golf" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0f1c3f]/60 to-[#0f1c3f]"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto">
+            <div class="mb-8">
+                <span class="text-gold text-sm uppercase tracking-[0.3em]">Investment Opportunity</span>
+                <h1 class="text-4xl md:text-6xl serif mt-2 mb-4">NYN Golf Vietnam</h1>
+                <p class="text-gray-400 max-w-2xl text-lg">
+                    Premium golf experiences in Asia's fastest-growing luxury travel destination. 
+                    Seeking <span class="text-gold font-semibold">$50,000</span> founding investment.
+                </p>
+            </div>
+
+            <!-- Key Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+                <div class="stat-card rounded-lg p-5 text-center">
+                    <p class="text-3xl md:text-4xl font-bold text-gold">$41.9B</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Market by 2030</p>
+                </div>
+                <div class="stat-card rounded-lg p-5 text-center">
+                    <p class="text-3xl md:text-4xl font-bold text-green">8</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Trips to Break-Even</p>
+                </div>
+                <div class="stat-card rounded-lg p-5 text-center">
+                    <p class="text-3xl md:text-4xl font-bold text-white">Month 5</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Profitable</p>
+                </div>
+                <div class="stat-card rounded-lg p-5 text-center">
+                    <p class="text-3xl md:text-4xl font-bold text-gold">$98K</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Y1 Ending Cash</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="px-6 md:px-12 pb-20">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- The Opportunity Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl serif mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-chart-line text-gold text-xl"></i>
+                    The Opportunity
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="glass-panel rounded-lg p-6">
+                        <h3 class="text-xl serif text-gold mb-4">Why Vietnam?</h3>
+                        <ul class="space-y-3 text-gray-300 text-sm">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green mt-1"></i>
+                                <span><strong class="text-white">Asia's Best Golf Destination</strong> — 8 consecutive years</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green mt-1"></i>
+                                <span><strong class="text-white">$1B government target</strong> for golf tourism by 2025</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green mt-1"></i>
+                                <span><strong class="text-white">6x higher spending</strong> — golf tourists vs. average visitors</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green mt-1"></i>
+                                <span><strong class="text-white">Affordable luxury</strong> — $70-$150 green fees vs. $300-$600 US/Europe</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel rounded-lg p-6">
+                        <h3 class="text-xl serif text-gold mb-4">Why NYN Golf?</h3>
+                        <ul class="space-y-3 text-gray-300 text-sm">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green mt-1"></i>
+                                <span><strong class="text-white">On-ground founder</strong> — American relocating to Vietnam March 2025</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green mt-1"></i>
+                                <span><strong class="text-white">200 corporate events</strong> across 41 countries</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green mt-1"></i>
+                                <span><strong class="text-white">"Life experience" positioning</strong> — Golf + culture, not just golf</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green mt-1"></i>
+                                <span><strong class="text-white">Affirm BNPL</strong> — +27% conversions, 97% cash upfront</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Investment Terms Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl serif mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-handshake text-gold text-xl"></i>
+                    Investment Terms
+                </h2>
+                <div class="glass-panel rounded-lg p-6 md:p-8">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center md:text-left">
+                            <p class="text-gray-400 text-sm uppercase tracking-wider mb-1">Investment</p>
+                            <p class="text-3xl font-bold text-gold">$50,000</p>
+                            <p class="text-gray-500 text-sm mt-1">SAFE Note</p>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <p class="text-gray-400 text-sm uppercase tracking-wider mb-1">Valuation Cap</p>
+                            <p class="text-3xl font-bold text-white">$500,000</p>
+                            <p class="text-gray-500 text-sm mt-1">Pre-money</p>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <p class="text-gray-400 text-sm uppercase tracking-wider mb-1">Discount</p>
+                            <p class="text-3xl font-bold text-white">20%</p>
+                            <p class="text-gray-500 text-sm mt-1">On next round</p>
+                        </div>
+                    </div>
+                    
+                    <hr class="border-white/10 my-8">
+                    
+                    <div>
+                        <h3 class="text-xl serif text-gold mb-4">Founding Investor Benefits</h3>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div class="flex items-center gap-3 text-gray-300">
+                                <i class="fa-solid fa-plane text-gold"></i>
+                                <span><strong class="text-white">Complimentary Trip</strong> — 6 days for 2 (~$8,000 value)</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-300">
+                                <i class="fa-solid fa-percent text-gold"></i>
+                                <span><strong class="text-white">Lifetime 20% Discount</strong> on all future trips</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-300">
+                                <i class="fa-solid fa-gift text-gold"></i>
+                                <span><strong class="text-white">$1,000 Referral Bonus</strong> (vs. $500 standard)</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-300">
+                                <i class="fa-solid fa-user-tie text-gold"></i>
+                                <span><strong class="text-white">Advisory Input</strong> on strategy & experiences</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Financial Highlights Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl serif mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-coins text-gold text-xl"></i>
+                    Financial Highlights
+                </h2>
+                <div class="glass-panel rounded-lg overflow-hidden">
+                    <table class="w-full text-sm">
+                        <thead class="bg-[#050a19]">
+                            <tr>
+                                <th class="text-left p-4 text-gray-400 font-medium uppercase tracking-wider">Metric</th>
+                                <th class="text-center p-4 text-gray-400 font-medium uppercase tracking-wider">Year 1</th>
+                                <th class="text-center p-4 text-gray-400 font-medium uppercase tracking-wider">Year 2</th>
+                                <th class="text-center p-4 text-gray-400 font-medium uppercase tracking-wider">Year 3</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <tr>
+                                <td class="p-4 text-gray-300">Trips Completed</td>
+                                <td class="p-4 text-center text-white">20</td>
+                                <td class="p-4 text-center text-white">40</td>
+                                <td class="p-4 text-center text-white">80</td>
+                            </tr>
+                            <tr class="bg-white/[0.02]">
+                                <td class="p-4 text-gray-300">Revenue</td>
+                                <td class="p-4 text-center text-white">$640,000</td>
+                                <td class="p-4 text-center text-white">$1,280,000</td>
+                                <td class="p-4 text-center text-white">$2,560,000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-gray-300">Net Operating Profit</td>
+                                <td class="p-4 text-center text-green font-semibold">$67,600</td>
+                                <td class="p-4 text-center text-green font-semibold">$319,000</td>
+                                <td class="p-4 text-center text-green font-semibold">$806,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                    <div class="text-center p-4 bg-[#050a19] rounded-lg">
+                        <p class="text-gold font-bold">$19,600</p>
+                        <p class="text-gray-500 text-xs uppercase">Startup Costs</p>
+                    </div>
+                    <div class="text-center p-4 bg-[#050a19] rounded-lg">
+                        <p class="text-white font-bold">$3,100-$3,900</p>
+                        <p class="text-gray-500 text-xs uppercase">Monthly Burn</p>
+                    </div>
+                    <div class="text-center p-4 bg-[#050a19] rounded-lg">
+                        <p class="text-white font-bold">$44,400</p>
+                        <p class="text-gray-500 text-xs uppercase">Annual Fixed Costs</p>
+                    </div>
+                    <div class="text-center p-4 bg-[#050a19] rounded-lg">
+                        <p class="text-green font-bold">20:1</p>
+                        <p class="text-gray-500 text-xs uppercase">LTV:CAC Ratio</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Documents Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl serif mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-folder-open text-gold text-xl"></i>
+                    Investor Documents
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
+                    <!-- Pitch Deck -->
+                    <a href="NYN_Golf_Pitch_Deck.pptx" download class="doc-card glass-panel rounded-lg p-5 flex items-center gap-4 transition-all cursor-pointer highlight-pulse">
+                        <div class="h-12 w-12 bg-red-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-file-powerpoint text-red-400 text-xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-white font-medium truncate">Pitch Deck</p>
+                            <p class="text-gray-500 text-xs">10 slides • PPTX</p>
+                        </div>
+                        <i class="fa-solid fa-download text-gray-500"></i>
+                    </a>
+
+                    <!-- Executive Summary -->
+                    <a href="NYN_Golf_Executive_Summary.docx" download class="doc-card glass-panel rounded-lg p-5 flex items-center gap-4 transition-all cursor-pointer">
+                        <div class="h-12 w-12 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-file-word text-blue-400 text-xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-white font-medium truncate">Executive Summary</p>
+                            <p class="text-gray-500 text-xs">1 page • DOCX</p>
+                        </div>
+                        <i class="fa-solid fa-download text-gray-500"></i>
+                    </a>
+
+                    <!-- Financial Model -->
+                    <a href="NYN_Golf_Financial_Model.docx" download class="doc-card glass-panel rounded-lg p-5 flex items-center gap-4 transition-all cursor-pointer">
+                        <div class="h-12 w-12 bg-green-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-file-invoice-dollar text-green-400 text-xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-white font-medium truncate">Financial Model</p>
+                            <p class="text-gray-500 text-xs">3-Year Projections • DOCX</p>
+                        </div>
+                        <i class="fa-solid fa-download text-gray-500"></i>
+                    </a>
+
+                    <!-- Operating Budget -->
+                    <a href="NYN_Golf_Operating_Budget.docx" download class="doc-card glass-panel rounded-lg p-5 flex items-center gap-4 transition-all cursor-pointer">
+                        <div class="h-12 w-12 bg-yellow-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-file-lines text-yellow-400 text-xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-white font-medium truncate">Operating Budget</p>
+                            <p class="text-gray-500 text-xs">Month-by-Month • DOCX</p>
+                        </div>
+                        <i class="fa-solid fa-download text-gray-500"></i>
+                    </a>
+
+                    <!-- Term Sheet -->
+                    <a href="NYN_Golf_Term_Sheet.docx" download class="doc-card glass-panel rounded-lg p-5 flex items-center gap-4 transition-all cursor-pointer">
+                        <div class="h-12 w-12 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-file-signature text-purple-400 text-xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-white font-medium truncate">Term Sheet</p>
+                            <p class="text-gray-500 text-xs">Investment Terms • DOCX</p>
+                        </div>
+                        <i class="fa-solid fa-download text-gray-500"></i>
+                    </a>
+
+                    <!-- Risk Analysis -->
+                    <a href="NYN_Golf_Risk_Analysis.docx" download class="doc-card glass-panel rounded-lg p-5 flex items-center gap-4 transition-all cursor-pointer">
+                        <div class="h-12 w-12 bg-orange-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-triangle-exclamation text-orange-400 text-xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-white font-medium truncate">Risk Analysis</p>
+                            <p class="text-gray-500 text-xs">Mitigation Strategies • DOCX</p>
+                        </div>
+                        <i class="fa-solid fa-download text-gray-500"></i>
+                    </a>
+
+                    <!-- Operational Plan -->
+                    <a href="NYN_Golf_Operational_Plan.docx" download class="doc-card glass-panel rounded-lg p-5 flex items-center gap-4 transition-all cursor-pointer">
+                        <div class="h-12 w-12 bg-cyan-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-list-check text-cyan-400 text-xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-white font-medium truncate">Operational Plan</p>
+                            <p class="text-gray-500 text-xs">Year 1 Timeline • DOCX</p>
+                        </div>
+                        <i class="fa-solid fa-download text-gray-500"></i>
+                    </a>
+
+                    <!-- Market Analysis -->
+                    <a href="NYN_Golf_Combined_Market_Analysis.docx" download class="doc-card glass-panel rounded-lg p-5 flex items-center gap-4 transition-all cursor-pointer">
+                        <div class="h-12 w-12 bg-indigo-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-chart-pie text-indigo-400 text-xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-white font-medium truncate">Market Analysis</p>
+                            <p class="text-gray-500 text-xs">Global & Vietnam • DOCX</p>
+                        </div>
+                        <i class="fa-solid fa-download text-gray-500"></i>
+                    </a>
+
+                    <!-- Investor Memorandum -->
+                    <a href="NYN_Golf_Founding_Investor_Memorandum.docx" download class="doc-card glass-panel rounded-lg p-5 flex items-center gap-4 transition-all cursor-pointer">
+                        <div class="h-12 w-12 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-book text-gold text-xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-white font-medium truncate">Full Memorandum</p>
+                            <p class="text-gray-500 text-xs">Complete Overview • DOCX</p>
+                        </div>
+                        <i class="fa-solid fa-download text-gray-500"></i>
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="text-center py-12 px-6 glass-panel rounded-xl">
+                <h2 class="text-3xl md:text-4xl serif mb-4">Ready to Join?</h2>
+                <p class="text-gray-400 max-w-xl mx-auto mb-8">
+                    Become a founding investor in NYN Golf and secure your place in Vietnam's luxury golf tourism opportunity.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="/cdn-cgi/l/email-protection#2e4740584b5d5a6e40574049414248004d4143115d5b4c444b4d5a136077600b1c1e694142480b1c1e6740584b5d5a434b405a0b1c1e67405f5b475c57" class="inline-flex items-center justify-center gap-2 bg-gold text-[#0f1c3f] font-semibold px-8 py-3 rounded hover:bg-yellow-500 transition-all">
+                        <i class="fa-solid fa-envelope"></i>
+                        Contact Steve Winfield
+                    </a>
+                    <a href="NYN_Golf_Pitch_Deck.pptx" download class="inline-flex items-center justify-center gap-2 border border-gold text-gold font-semibold px-8 py-3 rounded hover:bg-gold hover:text-[#0f1c3f] transition-all">
+                        <i class="fa-solid fa-download"></i>
+                        Download Pitch Deck
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm mt-6">
+                    <i class="fa-solid fa-envelope mr-2"></i><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="375e594152444377594e5950585b511954585a">[email&#160;protected]</a>
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+  
