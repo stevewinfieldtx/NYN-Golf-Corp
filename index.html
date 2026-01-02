@@ -46,6 +46,25 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--nyn-blue); }
         ::-webkit-scrollbar-thumb { background: var(--nyn-gold); border-radius: 4px; }
+
+        /* Google Translate Styling */
+        .translate-wrapper { display: inline-block; }
+        .goog-te-gadget { font-family: 'Montserrat', sans-serif !important; }
+        .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: 1px solid rgba(212, 175, 55, 0.3) !important;
+            border-radius: 4px !important;
+            padding: 4px 8px !important;
+        }
+        .goog-te-gadget-simple span { color: #9ca3af !important; font-size: 11px !important; }
+        .goog-te-gadget-simple:hover span { color: #d4af37 !important; }
+        .goog-te-gadget-icon { display: none !important; }
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0 !important; }
+        .skiptranslate { display: none !important; }
+        .goog-te-gadget-simple .goog-te-menu-value span:first-child { display: none; }
+        .goog-te-gadget-simple .goog-te-menu-value span[style] { display: none !important; }
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd { display: none !important; }
     </style>
 </head>
 <body class="antialiased selection:bg-yellow-600 selection:text-white">
@@ -56,12 +75,15 @@
             <img src="NYN-Golf-Logo-Blue.png" alt="NYN Golf Logo" class="h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
             <div class="text-2xl font-bold tracking-widest serif hidden text-white">NYN<span class="text-gold">GOLF</span></div>
         </div>
-        <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium">
+        <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium items-center">
             <a href="#philosophy" class="hover:text-gold transition-colors">The Philosophy</a>
             <a href="#access" class="hover:text-gold transition-colors">The Access</a>
             <a href="#destinations" class="hover:text-gold transition-colors">Destinations</a>
             <a href="investors.html" class="hover:text-gold transition-colors">Investors</a>
             <a href="#reserve" class="px-6 py-2 border border-yellow-600 text-gold hover:bg-yellow-600 hover:text-white transition-all duration-300">Request Info</a>
+            
+            <!-- Language Selector -->
+            <div id="google_translate_element" class="translate-wrapper"></div>
         </div>
         <button class="md:hidden text-gold text-2xl">
             <i class="fa-solid fa-bars"></i>
@@ -361,6 +383,19 @@
             &copy; 2025 NYN Golf. All Rights Reserved.
         </div>
     </footer>
+
+    <!-- Google Translate -->
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,vi,ko,ja,zh-CN,ar,es,fr,de,ru',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
